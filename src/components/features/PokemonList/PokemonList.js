@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import styles from './Pokemon.module.scss';
+import styles from './PokemonList.module.scss';
 
-const Component = ({ className }) =>
-  <main className={clsx(className, styles.root)}>
-    Pokemon
-  </main>;
+import { Pokemon } from '../Pokemon/Pokemon';
+
+const Component = ({ className, pokemons }) =>
+  <section className={clsx(className, styles.root)}>
+    {pokemons.map(pokemon => <Pokemon key={`${pokemon.name} ${pokemon.url}`} pokemon={pokemon} />)}
+  </section>;
 
 Component.propTypes = {
   className: PropTypes.string,
+  pokemons: PropTypes.array,
 };
 
 export {
-  Component as Pokemon,
+  Component as PokemonList,
 };
 
