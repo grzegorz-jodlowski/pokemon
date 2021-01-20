@@ -27,20 +27,15 @@ const Component = ({ className }) => {
     Axios
       .get(`${api.url}/`)
       .then(res => {
-        console.log('  ~ file: Homepage.js ~ line 24 ~ res', res);
         setLoading(false);
         setNextPageURL(res.data.next);
         setPokemons(res.data.results);
         setNumberOfAllPokemons(res.data.count);
       })
       .catch(err => {
-        console.log('  ~ file: Homepage.js ~ line 28 ~ err', err);
         setLoading(false);
-        // setErrorMessage(err.message);
-
+        setErrorMessage(err.message);
       });
-
-
   }, []);
 
   const handleLoadMorePokemons = () => {
@@ -60,8 +55,6 @@ const Component = ({ className }) => {
       });
   };
 
-  console.log(searchString);
-
   const filteredPokemons = pokemons.filter(({ name }) => name.includes(searchString.toLocaleLowerCase()));
 
   return (
@@ -72,7 +65,7 @@ const Component = ({ className }) => {
         :
         errorMessage
           ?
-          <p>Błąd pobierania danych</p>
+          <p className={styles.error}>Błąd pobierania danych, spróbuj ponownie</p>
           :
           <>
             <SearchInput className={styles.search} setSearchString={setSearchString} />

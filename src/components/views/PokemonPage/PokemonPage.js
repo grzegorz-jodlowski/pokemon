@@ -41,7 +41,7 @@ const Component = ({ className, match }) => {
         :
         errorMessage
           ?
-          <p>Błąd pobierania danych</p>
+          <p className={styles.error}>Błąd pobierania danych, spróbuj ponownie</p>
           :
           <article className={clsx(className, styles.card)}>
             {pokemon ?

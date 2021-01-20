@@ -65,3 +65,10 @@
 .stats:hover .tooltiptext {
   visibility: visible;
 }
+
+.error {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  color: rgba(red, 0.8);
+}
