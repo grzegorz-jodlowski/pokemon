@@ -2,4 +2,33 @@
 
 .root {
   flex-grow: 1;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 40%;
+}
+
+.image {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.descriptionContainer {
+  padding: 6px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 2rem 0;
 }
