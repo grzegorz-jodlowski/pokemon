@@ -48,19 +48,14 @@ const Component = ({ className }) => {
     Axios
       .get(nextPageURL)
       .then(res => {
-        console.log('  ~ file: Homepage.js ~ line 24 ~ res', res);
         setLoadingMore(false);
         setNextPageURL(res.data.next);
         setPokemons([...pokemons, ...res.data.results]);
       })
       .catch(err => {
-        console.log('  ~ file: Homepage.js ~ line 28 ~ err', err);
         setLoadingMore(false);
-        // setErrorMessage(err.message);
-
+        setErrorMessage(err.message);
       });
-
-
   };
 
   console.log(searchString);
@@ -68,7 +63,6 @@ const Component = ({ className }) => {
   const filteredPokemons = pokemons.filter(({ name }) => name.includes(searchString.toLocaleLowerCase()));
 
   return (
-
     <main className={clsx(className, styles.root)}>
       {loading
         ?
@@ -81,7 +75,7 @@ const Component = ({ className }) => {
           <>
             <SearchInput className={styles.search} setSearchString={setSearchString} />
             <PokemonList pokemons={filteredPokemons} />
-            {loadingMore ? <Spinner /> : <Button text='Load more Pokemons!' action={handleLoadMorePokemons} />}
+            {loadingMore ? <Spinner /> : <Button text='Load more Pokemons!' action={handleLoadMorePokemons} className={styles.button} />}
           </>
       }
     </main>
