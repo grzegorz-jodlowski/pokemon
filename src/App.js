@@ -11,7 +11,7 @@ function App() {
     <MainLayout>
       <Switch>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={HomePage} />
-        <Route exact path={`${process.env.PUBLIC_URL}/pokemon/:id`} component={PokemonPage} />
+        <Route exact path={`${process.env.PUBLIC_URL}/pokemons/:id`} component={PokemonPage} />
       </Switch>
     </MainLayout>
   );
