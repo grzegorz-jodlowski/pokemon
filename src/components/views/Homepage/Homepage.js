@@ -20,6 +20,7 @@ const Component = ({ className }) => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [nextPageURL, setNextPageURL] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [numberOfAllPokemons, setNumberOfAllPokemons] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -30,6 +31,7 @@ const Component = ({ className }) => {
         setLoading(false);
         setNextPageURL(res.data.next);
         setPokemons(res.data.results);
+        setNumberOfAllPokemons(res.data.count);
       })
       .catch(err => {
         console.log('  ~ file: Homepage.js ~ line 28 ~ err', err);
@@ -75,7 +77,7 @@ const Component = ({ className }) => {
           <>
             <SearchInput className={styles.search} setSearchString={setSearchString} />
             <PokemonList pokemons={filteredPokemons} />
-            {loadingMore ? <Spinner /> : <Button text='Load more Pokemons!' action={handleLoadMorePokemons} className={styles.button} />}
+            {loadingMore ? <Spinner /> : (pokemons.length < numberOfAllPokemons) && <Button text='Load more Pokemons!' action={handleLoadMorePokemons} className={styles.button} />}
           </>
       }
     </main>
