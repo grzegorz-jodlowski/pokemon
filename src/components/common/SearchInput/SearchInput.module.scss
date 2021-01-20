@@ -12,9 +12,9 @@
   border-radius: 20px;
   outline: none;
   border-color: $Primary;
-  color: $Primary;
+  color: rgba(black, 0.8);
 
   &::placeholder {
-    color: rgba($Primary, 0.8);
+    color: rgba(black, 0.5);
   }
 }
