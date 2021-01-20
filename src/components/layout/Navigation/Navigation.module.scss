@@ -1,0 +1,72 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: $transition;
+}
+
+.navLink {
+  font-family: $font-header;
+  color: black;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 30px;
+  letter-spacing: 2px;
+  padding: 0.5rem 2rem;
+  opacity: 0.8;
+  position: relative;
+  transition: $transition;
+
+  &::after {
+    content: "";
+    transition: $transition;
+    position: absolute;
+    background: black;
+    width: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    &::after {
+      animation: grow 0.5s forwards;
+      opacity: 1;
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+  position: relative;
+  transition: $transition;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: black;
+    width: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+    height: 1px;
+    opacity: 1;
+    animation: grow 0.5s forwards;
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: translateX(-50%) scaleX(0);
+  }
+
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+}

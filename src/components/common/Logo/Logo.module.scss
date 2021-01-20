@@ -1,0 +1,13 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  color: black;
+  height: 47px;
+  width: 166px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  font-family: $font-header;
+  font-weight: 900;
+  font-size: 1.33rem;
+}
