@@ -6,6 +6,7 @@ import Axios from 'axios';
 import { api } from '../../../settings';
 
 import { capitalizeFirstLetter } from '../../../utils/capitalizeFirstLetter';
+import { generateIcon } from '../../../utils/generateIcon';
 
 import { Spinner } from '../../common/Spinner/Spinner';
 
@@ -48,9 +49,9 @@ const Component = ({ className, match }) => {
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} className={styles.image} />
                 <div className={styles.descriptionContainer}>
                   <h4 className={styles.name}>{capitalizeFirstLetter(pokemon.name)}</h4>
-                  <p className={styles.title}>Stats:</p>
-                  {pokemon.stats.splice(0, 4).map((stat, index) => <p key={`${pokemon.name}-stat-${index}`} className={styles.stats}>{`${stat.stat.name}: ${stat.base_stat}`}</p>)}
-
+                  <div className={styles.statsContainer}>
+                    {pokemon.stats.slice(1, 5).map((stat, index) => <div key={`${pokemon.name}-stat-${index}`} className={styles.stats}><i className={generateIcon(stat.stat.name)}></i>{`${stat.base_stat}`}<span className={styles.tooltiptext}>{stat.stat.name}</span></div>)}
+                  </div>
                 </div>
               </>
               : null
