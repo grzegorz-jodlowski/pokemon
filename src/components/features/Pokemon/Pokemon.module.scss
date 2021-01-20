@@ -1,4 +1,18 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  margin: 15px;
+  border: 1px solid #ccc;
+  border-radius: $radius;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.button {
+  margin: 0 auto 3rem;
 }
