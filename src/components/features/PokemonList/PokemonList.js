@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import styles from './HomePage.module.scss';
+import styles from './Pokemon.module.scss';
 
 const Component = ({ className }) =>
   <main className={clsx(className, styles.root)}>
-    HomePage
+    Pokemon
   </main>;
 
 Component.propTypes = {
@@ -14,6 +14,6 @@ Component.propTypes = {
 };
 
 export {
-  Component as HomePage,
+  Component as Pokemon,
 };
 

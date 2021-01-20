@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
-import { Homepage } from './components/views/Homepage/Homepage';
+import { HomePage } from './components/views/HomePage/HomePage';
+import { PokemonPage } from './components/views/PokemonPage/PokemonPage';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <MainLayout>
       <Switch>
-        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Homepage} />
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={HomePage} />
+        <Route exact path={`${process.env.PUBLIC_URL}/pokemon/:id`} component={PokemonPage} />
       </Switch>
     </MainLayout>
   );
